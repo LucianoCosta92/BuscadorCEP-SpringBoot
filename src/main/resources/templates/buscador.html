@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+	crossorigin="anonymous">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<title>Buscador de CEP</title>
+</head>
+<body>
+	<header>
+		<h1>Busca por CEP</h1>
+	</header>
+	<div>
+		<div>
+			<form method="get" action="/buscador">
+				<label for="cep">Digite o CEP:</label> <input type="text" id="cep"
+					name="cep" required maxlength="8"> <span></span>
+				<button type="submit" class="btn btn-primary">Consultar</button>
+			</form>
+		</div>
+		<br>
+		<div th:if="${erro != null}" class="alert alert-danger" role="alert">
+			<span th:text="${erro}"></span>
+		</div>
+		<br>
+		<div>
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th>CEP</th>
+						<th>Logradouro</th>
+						<th>Complemento</th>
+						<th>Bairro</th>
+						<th>Cidade</th>
+						<th>UF</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td th:text="${endereco.cep}">CEP</td>
+						<td th:text="${endereco.logradouro}">Logradouro</td>
+						<td th:text="${endereco.complemento}">Complemento</td>
+						<td th:text="${endereco.bairro}">Bairro</td>
+						<td th:text="${endereco.localidade}">Cidade</td>
+						<td th:text="${endereco.uf}">UF</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
