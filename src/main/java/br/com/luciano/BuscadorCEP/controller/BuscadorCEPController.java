@@ -16,14 +16,6 @@ import br.com.luciano.BuscadorCEP.model.Endereco;
 @RequestMapping("/buscador")
 public class BuscadorCEPController {
 	
-	/* @RequestParam:
-	 * Serve para capturar parâmetros de consulta (query string) — 
-	 * aqueles que vêm na URL com ?param=valor.
-	 * 
-	 * @PathVariable:
-	 * Serve para capturar parte do caminho da URL (path) — quando a variável está na própria URL.
-	 * */
-	
 	@GetMapping("")
 	public ModelAndView buscadorCep(@RequestParam(required = false) String cep) throws ClientProtocolException, IOException {
 		ModelAndView mv = new ModelAndView("buscador");
