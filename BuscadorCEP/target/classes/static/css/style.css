@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+html, body{
+	height: 100%;
+	margin: 0;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Tablets */
+@media screen and (max-width: 768px){
+    section, aside {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+
